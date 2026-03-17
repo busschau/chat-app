@@ -1,0 +1,137 @@
+/* Cyberpunk UI theme – CSS variables and base typography */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700&display=swap");
+
+:root {
+  /* Neon accents */
+  --cyber-cyan: #00f5ff;
+  --cyber-cyan-dim: #00b8c4;
+  --cyber-magenta: #ff00aa;
+  --cyber-magenta-dim: #c40085;
+  --cyber-accent: var(--cyber-cyan);
+  --cyber-accent-alt: var(--cyber-magenta);
+
+  /* Dark background */
+  --cyber-bg: #0a0a0f;
+  --cyber-bg-gradient: linear-gradient(
+    135deg,
+    #0a0a0f 0%,
+    #12121a 40%,
+    #0d0d14 100%
+  );
+  --cyber-surface: rgba(18, 18, 28, 0.85);
+  --cyber-surface-border: rgba(0, 245, 255, 0.15);
+  --cyber-surface-hover: rgba(0, 245, 255, 0.06);
+  --cyber-panel: rgba(12, 12, 20, 0.9);
+  --cyber-panel-border: rgba(255, 0, 170, 0.2);
+
+  /* Glass effect */
+  --cyber-glass: rgba(15, 15, 25, 0.75);
+  --cyber-glass-border: rgba(0, 245, 255, 0.2);
+  --cyber-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+  /* Text */
+  --cyber-text: #e2e8f0;
+  --cyber-text-muted: #94a3b8;
+  --cyber-text-strong: #f1f5f9;
+  --cyber-text-inverse: #0a0a0f;
+
+  /* Buttons */
+  --cyber-btn-bg: transparent;
+  --cyber-btn-border: var(--cyber-cyan);
+  --cyber-btn-text: var(--cyber-cyan);
+  --cyber-btn-glow: 0 0 12px rgba(0, 245, 255, 0.4);
+  --cyber-btn-hover-glow: 0 0 20px rgba(0, 245, 255, 0.6);
+  --cyber-btn-primary-bg: rgba(0, 245, 255, 0.12);
+  --cyber-btn-secondary-bg: rgba(148, 163, 184, 0.12);
+  --cyber-btn-secondary-border: rgba(148, 163, 184, 0.4);
+  --cyber-btn-secondary-text: var(--cyber-text);
+  --cyber-btn-danger-border: var(--cyber-magenta);
+  --cyber-btn-danger-text: #ff6b9d;
+  --cyber-btn-danger-glow: 0 0 12px rgba(255, 0, 170, 0.35);
+
+  /* Inputs */
+  --cyber-input-bg: rgba(15, 15, 25, 0.8);
+  --cyber-input-border: rgba(148, 163, 184, 0.25);
+  --cyber-input-focus-border: var(--cyber-cyan);
+  --cyber-input-focus-ring: 0 0 0 2px rgba(0, 245, 255, 0.35);
+  --cyber-input-text: var(--cyber-text);
+  --cyber-input-placeholder: #64748b;
+
+  /* Links */
+  --cyber-link: var(--cyber-cyan);
+  --cyber-link-hover: var(--cyber-cyan-dim);
+  --cyber-link-glow: 0 0 8px rgba(0, 245, 255, 0.3);
+
+  /* States */
+  --cyber-error-bg: rgba(248, 113, 113, 0.12);
+  --cyber-error-border: rgba(248, 113, 113, 0.4);
+  --cyber-error-text: #fca5a5;
+  --cyber-success-bg: rgba(0, 245, 255, 0.08);
+  --cyber-success-border: rgba(0, 245, 255, 0.35);
+  --cyber-success-text: var(--cyber-cyan-dim);
+
+  /* Message bubbles */
+  --cyber-msg-mine-bg: rgba(0, 245, 255, 0.2);
+  --cyber-msg-mine-border: var(--cyber-cyan);
+  --cyber-msg-mine-text: var(--cyber-text-strong);
+  --cyber-msg-theirs-bg: rgba(30, 30, 45, 0.9);
+  --cyber-msg-theirs-border: rgba(148, 163, 184, 0.2);
+  --cyber-msg-theirs-text: var(--cyber-text);
+  --cyber-msg-time-mine: rgba(226, 232, 240, 0.8);
+  --cyber-msg-time-theirs: var(--cyber-text-muted);
+
+  /* Focus (accessibility) */
+  --cyber-focus-ring: 0 0 0 2px var(--cyber-bg), 0 0 0 4px var(--cyber-cyan);
+  --cyber-focus-ring-offset: 2px;
+}
+
+/* Typography */
+body {
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+h1, h2, h3, .auth-title, .app-title, .chat-title {
+  font-family: "Orbitron", "Inter", system-ui, sans-serif;
+  font-weight: 600;
+}
+
+/* Utility: secondary button (outline style) */
+.auth-button--secondary {
+  background: var(--cyber-btn-secondary-bg) !important;
+  color: var(--cyber-btn-secondary-text) !important;
+  border: 1px solid var(--cyber-btn-secondary-border) !important;
+}
+.auth-button--secondary:hover:not(:disabled) {
+  border-color: var(--cyber-text-muted) !important;
+  box-shadow: 0 0 12px rgba(148, 163, 184, 0.2) !important;
+}
+
+/* Utility: danger button */
+.auth-button--danger {
+  background: rgba(255, 0, 170, 0.08) !important;
+  color: var(--cyber-btn-danger-text) !important;
+  border: 1px solid var(--cyber-btn-danger-border) !important;
+}
+.auth-button--danger:hover:not(:disabled) {
+  box-shadow: var(--cyber-btn-danger-glow) !important;
+}
+
+/* Success message box */
+.cyber-success-box {
+  color: var(--cyber-success-text);
+  background: var(--cyber-success-bg);
+  border: 1px solid var(--cyber-success-border);
+}
+
+/* Chat message bubbles – use in App.css or as classes */
+.cyber-msg-mine {
+  background: var(--cyber-msg-mine-bg);
+  border: 1px solid var(--cyber-msg-mine-border);
+  color: var(--cyber-msg-mine-text);
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.15);
+}
+.cyber-msg-theirs {
+  background: var(--cyber-msg-theirs-bg);
+  border: 1px solid var(--cyber-msg-theirs-border);
+  color: var(--cyber-msg-theirs-text);
+}
